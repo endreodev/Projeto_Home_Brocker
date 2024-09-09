@@ -7,6 +7,7 @@ __pycache__/
 # C extensions
 *.so
 Api-home-Brocker-qout-full/homebrokerdtvm-7824e290ff8d.json
+app.msolucao/firebase-messaging-sw.js
 
 # Distribution / packaging
 .Python
