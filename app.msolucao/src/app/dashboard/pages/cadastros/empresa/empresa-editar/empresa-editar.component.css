@@ -1,0 +1,28 @@
+.profile-picture-new {
+    width: 350px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+
+.profile-picture-new:hover {
+    transform: translateY(-10px); /* Efeito flutuante */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa ao passar o mouse */
+}
+
+
+input[type="file"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+
+
+

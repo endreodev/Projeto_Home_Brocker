@@ -1,0 +1,179 @@
+
+
+<div class="row mt-5">
+    <div class="col-12 col-xl-12 col-xxl-12 mb-4">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow">
+                    
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h2 class="fs-5 fw-bold mb-0">Empresa Editar</h2>
+                            </div>
+                            <div class="col text-end">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-5 p-1 text-left" style="margin: 20px;">
+                        <!-- Foto de Perfil -->
+                        <img [src]="logoMarca" alt="Foto de Perfil" class="img-fluid profile-picture-new" (click)="openUploadModal()">
+                    </div>
+                    <div class="col-sm-12 mt-5 p-3">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="empresaForm">
+                          <div class="row">
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                  <label for="nome" class="form-label">Codigo Interno</label>
+                                  <input type="text" class="form-control" id="cod_interno" formControlName="cod_interno" placeholder="Digite codigo interno">
+                                </div>
+                            </div>
+                              
+                            <div class="col-sm-12 col-md-3">
+                              <div class="mb-3">
+                                <label for="cnpj" class="form-label">CNPJ</label>
+                                <input type="text" class="form-control" id="cgc" formControlName="cgc" placeholder="Digite o cgc" maxlength="14">
+                                <div *ngIf="empresaForm.get('cgc')?.invalid && empresaForm.get('cgc')?.touched">
+                                    <div class="text-danger" *ngIf="empresaForm.get('cgc')?.hasError('required')">CNPJ é obrigatório.</div>
+                                    <div class="text-danger" *ngIf="empresaForm.get('cgc')?.hasError('pattern')">CNPJ deve ter 14 dígitos numéricos.</div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                  <label for="empresa" class="form-label">Apelido da Empresa</label>
+                                  <input type="text" class="form-control" id="empresa" formControlName="empresa" minlength="3" placeholder="Digite o empresa da empresa">
+                                  <div *ngIf="empresaForm.get('empresa')?.invalid && empresaForm.get('empresa')?.touched">
+                                      <div class="text-danger" *ngIf="empresaForm.get('empresa')?.hasError('required')">Empresa é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="empresaForm.get('empresa')?.hasError('minlength')">Empresa deve ter mais de 3 dígitos numéricos.</div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                              <div class="mb-3">
+                                <label for="nome" class="form-label">Nome da Empresa</label>
+                                <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Digite o nome da empresa">
+                                <div *ngIf="empresaForm.get('nome')?.invalid && empresaForm.get('nome')?.touched">
+                                    <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('required')">NOME é obrigatório.</div>
+                                    <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('pattern')">NOME deve ter 14 dígitos numéricos.</div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Valida Saldo Diario</label>
+                                    <select class="form-select" aria-label="Default select example"  id="valsaldo" formControlName="valsaldo" >
+                                        <option value="true">Ativo</option>
+                                        <option value="false">Inativo</option>
+                                    </select>
+                                    <div *ngIf="empresaForm.get('valsaldo')?.invalid && empresaForm.get('valsaldo')?.touched">
+                                        <div class="text-danger" *ngIf="empresaForm.get('valsaldo')?.hasError('required')">Valida Saldo é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                  <label for="Telegran" class="form-label">Hora Inicio</label>
+                                  <input type="text" class="form-control" id="tokenbot" formControlName="hrinicio" mask="00:00" placeholder="HH:MM">
+                                  <!-- <div *ngIf="empresaForm.get('nome')?.invalid && empresaForm.get('nome')?.touched">
+                                      <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('required')">NOME é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('pattern')">NOME deve ter 14 dígitos numéricos.</div>
+                                  </div> -->
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                  <label for="Telegran" class="form-label">Hora Final</label>
+                                  <input type="text" class="form-control" id="tokenbot" formControlName="hrfinal" mask="00:00" placeholder="HH:MM">
+                                  <!-- <div *ngIf="empresaForm.get('nome')?.invalid && empresaForm.get('nome')?.touched">
+                                      <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('required')">NOME é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('pattern')">NOME deve ter 14 dígitos numéricos.</div>
+                                  </div> -->
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                  <label for="Telegran" class="form-label">Token bot Telegran</label>
+                                  <input type="text" class="form-control" id="tokenbot" formControlName="tokenbot" placeholder="Digite o nome da empresa">
+                                  <!-- <div *ngIf="empresaForm.get('nome')?.invalid && empresaForm.get('nome')?.touched">
+                                      <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('required')">NOME é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('pattern')">NOME deve ter 14 dígitos numéricos.</div>
+                                  </div> -->
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                  <label for="Telegran" class="form-label">Id Chat Telegran</label>
+                                  <input type="text" class="form-control" id="telegran" formControlName="telegran" placeholder="Digite o nome da empresa">
+                                  <!-- <div *ngIf="empresaForm.get('nome')?.invalid && empresaForm.get('nome')?.touched">
+                                      <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('required')">NOME é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="empresaForm.get('nome')?.hasError('pattern')">NOME deve ter 14 dígitos numéricos.</div>
+                                  </div> -->
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Ativo</label>
+                                    <select class="form-select" aria-label="Default select example"  id="ativo" formControlName="ativo" >
+                                        <option value="true">Ativo</option>
+                                        <option value="false">Inativo</option>
+                                    </select>
+                                    <div *ngIf="empresaForm.get('ativo')?.invalid && empresaForm.get('ativo')?.touched">
+                                        <div class="text-danger" *ngIf="empresaForm.get('ativo')?.hasError('required')">Ativo é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Integração Sankhya</label>
+                                    <select class="form-select" aria-label="Default select example"  id="integra_skn" formControlName="integra_skn" >
+                                        <option value="true">Ativo</option>
+                                        <option value="false">Inativo</option>
+                                    </select>
+                                    <div *ngIf="empresaForm.get('integra_skn')?.invalid && empresaForm.get('integra_skn')?.touched">
+                                        <div class="text-danger" *ngIf="empresaForm.get('integra_skn')?.hasError('required')">Integração skn é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Integração Garnet</label>
+                                    <select class="form-select" aria-label="Default select example"  id="integra_gar" formControlName="integra_gar" >
+                                        <option value="true">Ativo</option>
+                                        <option value="false">Inativo</option>
+                                    </select>
+                                    <div *ngIf="empresaForm.get('integra_gar')?.invalid && empresaForm.get('integra_gar')?.touched">
+                                        <div class="text-danger" *ngIf="empresaForm.get('integra_gar')?.hasError('required')">Integração garnet é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+                          </div>
+                          <button type="submit" class="btn btn-primary m-2">Salvar</button>
+                          <button type="submit" class="btn btn-danger m-2" [routerLink]="['/dashboard/empresa']">Cancelar</button>
+
+                          <!-- <a class="btn btn-sm bg-warning" [routerLink]="['/dashboard/empresa/editar', item.id]" >Editar</a> -->
+                        </form>
+                      </div>
+                      
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

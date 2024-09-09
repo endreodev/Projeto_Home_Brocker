@@ -1,0 +1,7 @@
+body {
+    background-color: rgb(115, 165, 199);
+}
+
+.swal2-popup { 
+    width: 45em !important; 
+}

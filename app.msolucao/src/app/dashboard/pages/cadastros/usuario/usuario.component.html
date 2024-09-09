@@ -1,0 +1,74 @@
+<div class="row mt-2">
+    <div class="col-12 col-sm-12 col-xl-12 mb-4">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <div class="row d-block d-xxl-flex align-items-center">
+                    <div class="col-12 col-xxl-6 ps-xxl-4 pe-xxl-0">
+                        <a class="btn btn-sm bg-warning" [routerLink]="['/dashboard/usuario/adicionar']" >Adicionar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-12 col-xxl-12 mb-4">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h2 class="fs-5 fw-bold mb-0">Cadastro - Usuario</h2>
+                            </div>
+                            <div class="col text-end"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive p-3">
+                        <table class="table align-items-center table-flush table table-striped">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="border-bottom" scope="col">Id</th>
+                                    <th class="border-bottom" scope="col">Cod Ref</th>
+                                    <th class="border-bottom" scope="col">Empresa Id</th> 
+                                    <th class="border-bottom" scope="col">Nome</th>
+                                    <th class="border-bottom" scope="col">Email</th>
+                                    <th class="border-bottom" scope="col">Fone</th>
+                                    <th class="border-bottom" scope="col">Interno</th>  
+                                    <th class="border-bottom" scope="col">Ativo</th>  
+                                    <th class="border-bottom" scope="col">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               @for(item of dataServices;track item){
+                                <tr> 
+                                    <th class="fw-bolder text-gray-500">{{item.id}}</th>
+                                    <th class="fw-bolder text-gray-500">{{item.cod_interno}}</th>
+                                    <th class="fw-bolder text-gray-500">{{item.empresa_id}}</th> 
+                                    <th class="fw-bolder text-gray-500">{{item.nome}}</th> 
+                                    <th class="fw-bolder text-gray-500">{{item.email}}</th>
+                                    <th class="fw-bolder text-gray-500">{{item.telefone}}</th> 
+                                    <td class="fw-bolder text-gray-500">
+                                        <button class="btn btn-sm {{item.interno ? 'bg-success' : 'bg-danger'}}"></button>
+                                    </td>
+                                    <td class="fw-bolder text-gray-500">
+                                        <button class="btn btn-sm {{item.ativo ? 'bg-success' : 'bg-danger'}}"></button>
+                                    </td>
+                                    <td class="fw-bolder text-gray-500">
+                                        <a class="btn btn-sm bg-warning m-2" [routerLink]="['/dashboard/usuario/editar', item.id]" >Editar</a>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

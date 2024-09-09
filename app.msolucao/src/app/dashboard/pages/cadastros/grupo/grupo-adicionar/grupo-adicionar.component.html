@@ -1,0 +1,63 @@
+
+
+<div class="row mt-5">
+    <div class="col-12 col-xl-12 col-xxl-12 mb-4">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow">
+                    
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h2 class="fs-5 fw-bold mb-0">Grupo Adicionar</h2>
+                            </div>
+                            <div class="col text-end">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 mt-5 p-3">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="grupoForm">
+                          <div class="row">
+
+                            <div class="col-sm-12 col-md-3">
+                              <div class="mb-3">
+                                <label for="nome" class="form-label">Nome da Grupo</label>
+                                <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Digite o nome da Grupo">
+                                <div *ngIf="grupoForm.get('nome')?.invalid && grupoForm.get('nome')?.touched">
+                                    <div class="text-danger" *ngIf="grupoForm.get('nome')?.hasError('required')">NOME é obrigatório.</div>
+                                    <div class="text-danger" *ngIf="grupoForm.get('nome')?.hasError('pattern')">NOME deve ter 14 dígitos numéricos.</div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Ativo</label>
+                                    <select class="form-select" aria-label="Default select example"  id="ativo" formControlName="ativo" >
+                                        <option value="true">Ativo</option>
+                                        <option value="false">Inativo</option>
+                                    </select>
+                                    <div *ngIf="grupoForm.get('ativo')?.invalid && grupoForm.get('ativo')?.touched">
+                                        <div class="text-danger" *ngIf="grupoForm.get('ativo')?.hasError('required')">Ativo é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+                          </div>
+                          <button type="submit" class="btn btn-primary m-2">Salvar</button>
+                          <button type="submit" class="btn btn-danger m-2" [routerLink]="['/dashboard/grupo']">Cancelar</button>
+
+                          <!-- <a class="btn btn-sm bg-warning" [routerLink]="['/dashboard/empresa/editar', item.id]" >Editar</a> -->
+                        </form>
+                      </div>
+                      
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

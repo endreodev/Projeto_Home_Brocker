@@ -1,0 +1,224 @@
+<div class="row mt-2">
+    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <div class="row d-block d-xxl-flex align-items-center">
+                    <!-- <div class="col-12 col-xxl-6 px-xxl-0 mb-3 mb-xxl-0">
+                        <div id="chart-customers"></div>
+                    </div> -->
+                    <div class="col-12 col-xxl-12 ps-xxl-4 pe-xxl-0">
+                        <h2 class="fs-6 fw-normal mb-1 text-gray-900">Total Vendas {{stringTrava}}</h2>
+                        <h2 class="fw-extrabold mb-1">{{quantidadeTrava | currency:'BRL':'symbol':'1.2-2'}} (g) </h2>
+                        <br>
+                        <small class="d-flex align-items-center">
+                            <svg class="icon icon-xxs text-gray-400 me-1" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Limite Mês: {{limiteParceiro | currency:'BRL':'symbol':'1.2-2'}} (g)
+                        </small>
+                        <div class="small d-flex mt-1">
+                            <div>
+                                <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-success fw-bolder">{{ percentual | currency:'BRL':'symbol':'1.2-2' }} %</span>
+                                Limite Atingido 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <div class="row d-block d-xxl-flex align-items-center">
+
+                    <div class="col-12 col-xxl-12 ps-xxl-4 pe-xl-0">
+                        <h2 class="fs-6 fw-normal mb-1 text-gray-900">Cotação Atual - OURO</h2>
+                        <h3 class="fw-extrabold mb-1">{{ this.cotationPrice | currency:'BRL':'symbol':'1.2-2' }} (g)</h3>
+                        <br><br><br>
+                        <!-- <h3 class="fw-extrabold mb-1">R$ {{ resultadosObserver | async }} (g)</h3> -->
+                        <!-- <small class="d-flex align-items-center">
+                            <svg class="icon icon-xxs text-gray-400 me-1" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            
+                        </small> -->
+                        <!-- <div class="small d-flex mt-1">
+                            <div>
+                                <svg class="icon icon-xs text-danger" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-danger fw-bolder">4,6%</span>
+                                Since last month
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  *ngIf="!exibirProgressBar" class="col-12 col-sm-12 col-xl-4 mb-4">
+        <div class="alert alert-warning" role="alert">
+            Vendas Temporariamente indisponiveis! 
+        </div>
+    </div>
+
+    <div  *ngIf="exibirProgressBar" class="col-12 col-sm-12 col-xl-4 mb-4">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <div class="row d-block d-sm-flex d-xl-block d-xxl-flex align-items-center">
+                    <div class="row col-sm-12">
+                        <div class="col-sm-6">
+                            <h2 class="fs-6 fw-normal mb-1 text-gray-900">Cotação</h2>
+                            <p class="fw-extrabold mb-1" style="font-size: 17pt;">
+                                {{ this.cotationPrice | currency:'BRL':'symbol':'1.2-2' }} (g)
+                            </p>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <h2 class="fs-6 fw-normal mb-1 text-gray-900">Valor Total</h2>
+                            <p class="fw-extrabold mb-1" style="font-size: 17pt;">
+                                {{ valorTotal | currency:'BRL':'symbol':'1.2-2' }}
+                            </p>
+                        </div>
+                        <br>
+
+                        <div class="col-sm-6">
+                            <label for="gramas">Quantidade (g)</label>
+                            <input  type="text" 
+                                    class="form-control" 
+                                    id="gramas" 
+                                    name="gramas" 
+                                    [(ngModel)]="gramas" 
+                                    mask="separator.2" thousandSeparator="."
+                                    (focus)="clearField()" 
+                                    required>
+                        </div>
+                    
+                        <button class="btn btn-sm btn-info col-6 mt-4" type="button" *ngIf="exibirProgressBar" (click)="realizarOrdemTrava()">Vender</button>
+ 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-12 col-xxl-12 mb-4">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="fs-5 fw-bold mb-0">VENDAS REALIZADAS</h4>
+                            </div>
+                            <div class="col text-end">
+                                <app-sidenav #sidenav></app-sidenav>
+                            </div>
+                            <div class="col text-end">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <input type="date" class="form-control me-2" [(ngModel)]="dataInicio" placeholder="Data Inicial">
+                                    <input type="date" class="form-control me-2" [(ngModel)]="dataFim" placeholder="Data Final">
+                                    <button class="btn btn-primary me-2" (click)="atualizalistaTravasTodos()">Filtrar</button>
+                                    <button *ngIf="dataInicio && dataFim"
+                                        class="btn btn-danger me-2" (click)="baixarRelatorioPDF()"><i class="fas fa-file-pdf"></i></button>
+                                    <button *ngIf="dataInicio && dataFim"
+                                        class="btn btn-success me-2" (click)="baixarRelatorioExecel()"><i class="fas fa-file-pdf"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive p-3">
+                        <table class="table align-items-center table-flush table-striped">
+                            <thead style="padding: 10px !important; margin-bottom: 5px !important; align-items: center !important;">
+                                <tr> 
+                                    <th class="fw-bolder text-gray-500">ico</th>
+                                    <th class="fw-bolder text-gray-500">Id</th>
+                                    <th class="fw-bolder text-gray-500" *ngIf="interno">Parceiro</th>
+                                    <th class="fw-bolder text-gray-500">Usuario</th>
+                                    <th class="fw-bolder text-gray-500">Referencia</th>
+                                    <th class="fw-bolder text-gray-500">Data</th>
+                                    <th class="fw-bolder text-gray-500">Qtd</th>
+                                    <th class="fw-bolder text-gray-500">Valor (g)</th>
+                                    <th class="fw-bolder text-gray-500">Total</th>
+                                    <th class="fw-bolder text-gray-500">Status</th>
+                                    <th class="fw-bolder text-gray-500" *ngIf="interno">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let iten of travas; trackBy: trackByFn" (dblclick)="sidenav.toggleSidenav($event,iten)">
+                                    <th class="fw-bolder text-gray-500">
+                                        <img src="../../../assets/img/gold.jpg" alt="" height="30px" width="30px">
+                                    </th>
+                                    <th class="fw-bolder text-gray-500">{{ iten.id }}</th>
+                                    <th class="fw-bolder text-gray-500" *ngIf="interno">{{ iten.parceiro_nome }}</th>
+                                    <th class="fw-bolder text-gray-500">{{ iten.usuario_nome }}</th>
+                                    <th class="fw-bolder text-gray-500">{{ iten.produto_id }}</th>
+                                    <th class="fw-bolder text-gray-500">{{ iten.created_at }}</th>
+                                    <td class="fw-bolder text-gray-500">{{ iten.quantidade | numberFormatBR }}</td>
+                                    <td class="fw-bolder text-gray-500">{{ iten.preco_unitario | currency:'BRL':'symbol':'1.2-2' }}</td>
+                                    <td class="fw-bolder text-gray-500">{{ iten.preco_total | currency:'BRL':'symbol':'1.2-2' }}</td>
+                                    <td class="fw-bolder text-gray-500">
+                                        <button class="btn btn-sm {{iten.status == 'A' ? 'bg-warning' : iten.status == 'C' ? 'bg-danger' : 'bg-success'}}">
+                                            {{iten.status == 'A' ? 'Aberto' : iten.status == 'C' ? 'Cancelado' : 'Finalizado'}}
+                                        </button>
+                                    </td>
+                                    <td class="fw-bolder text-gray-500" *ngIf="interno">
+                                        <button *ngIf="iten.status == 'A'" class="btn btn-sm bg-success mb-1 p-2" (click)="encerraOrderm(iten.id)">
+                                            Finalizar
+                                        </button>
+                                        &nbsp;
+                                        <button *ngIf="iten.status == 'A'" class="btn btn-sm bg-warning mb-1 p-2" (click)="cancelarOrderm(iten.id)">
+                                            Cancelar
+                                        </button>
+                                        &nbsp;
+                                        <button 
+                                            *ngIf="iten.status == 'F' && iten.integrado != 'S' && integracao_sankhya" 
+                                            class="btn btn-sm btn-info mb-1 p-2" (click)="realizaIntegracao(iten.id)">
+                                            Integrar
+                                        </button>
+        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                            <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item" [class.disabled]="current_page === 1">
+                                    <a class="page-link" (click)="previousPage()">Anterior</a>
+                                </li>
+                                <li *ngFor="let page of paginatedPages" class="page-item" [class.active]="current_page === page">
+                                    <a *ngIf="page !== -1" class="page-link" (click)="goToPage(page)">{{ page }}</a>
+                                    <span *ngIf="page === -1" class="page-link">...</span>
+                                </li>
+                                <li class="page-item" [class.disabled]="current_page === paginas.length">
+                                    <a class="page-link" (click)="nextPage()">Próximo</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

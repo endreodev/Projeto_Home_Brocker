@@ -1,0 +1,147 @@
+<div class="row mt-5">
+    <div class="col-12 col-xl-12 col-xxl-12 mb-4">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow">
+                    
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h2 class="fs-5 fw-bold mb-0">Usuario Editar</h2>
+                            </div>
+                            <div class="col text-end">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 mt-5 p-3">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="usuarioForm">
+                          <div class="row">
+
+                            <!-- <div class="col-sm-12 col-md-3">
+                              <div class="mb-3">
+                                <label for="cnpj" class="form-label">CPF</label>
+                                <input type="text" class="form-control" id="cgc" formControlName="cgc" placeholder="Digite o cgc" maxlength="14" readonly>
+                                <div *ngIf="usuarioForm.get('cgc')?.invalid && usuarioForm.get('cgc')?.touched">
+                                    <div class="text-danger" *ngIf="usuarioForm.get('cgc')?.hasError('required')">CNPJ é obrigatório.</div>
+                                    <div class="text-danger" *ngIf="usuarioForm.get('cgc')?.hasError('pattern')">CNPJ deve ter 14 dígitos numéricos.</div>
+                                </div>
+                              </div>
+                            </div> -->
+
+                            <div class="col-sm-12 col-md-3">
+                              <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Digite o nome da parceiro">
+                                <div *ngIf="usuarioForm.get('nome')?.invalid && usuarioForm.get('nome')?.touched">
+                                    <div class="text-danger" *ngIf="usuarioForm.get('nome')?.hasError('required')">NOME é obrigatório.</div>
+                                    <div class="text-danger" *ngIf="usuarioForm.get('nome')?.hasError('pattern')">NOME deve ter 14 dígitos numéricos.</div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                  <label for="nome" class="form-label">Email</label>
+                                  <input type="text" class="form-control" id="email" formControlName="email" placeholder="Digite o email da parceiro">
+                                  <div *ngIf="usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched">
+                                      <div class="text-danger" *ngIf="usuarioForm.get('email')?.hasError('required')">email é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="usuarioForm.get('email')?.hasError('pattern')">email deve ter 14 dígitos numéricos.</div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Interno</label>
+                                    <select class="form-select" aria-label="Default select example"  id="interno" formControlName="interno" >
+                                        <option value="true">Sim</option>
+                                        <option value="false">Não</option>
+                                    </select>
+                                    <div *ngIf="usuarioForm.get('ativo')?.invalid && usuarioForm.get('ativo')?.touched">
+                                        <div class="text-danger" *ngIf="usuarioForm.get('ativo')?.hasError('required')">Ativo é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Ativo</label>
+                                    <select class="form-select" aria-label="Default select example"  id="ativo" formControlName="ativo" >
+                                        <option value="true">Ativo</option>
+                                        <option value="false">Inativo</option>
+                                    </select>
+                                    <div *ngIf="usuarioForm.get('ativo')?.invalid && usuarioForm.get('ativo')?.touched">
+                                        <div class="text-danger" *ngIf="usuarioForm.get('ativo')?.hasError('required')">Ativo é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+                          </div>
+                          <button type="submit" class="btn btn-primary m-2">Salvar</button>
+                          <button type="submit" class="btn btn-danger m-2" [routerLink]="['/dashboard/usuario']">Cancelar</button>
+
+                          <!-- <a class="btn btn-sm bg-warning" [routerLink]="['/dashboard/empresa/editar', item.id]" >Editar</a> -->
+                        </form>
+                      </div>
+                      
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+    <div class="col-12 col-xl-12 col-xxl-12 mb-4">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow">
+                    
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h2 class="fs-5 fw-bold mb-0">Filiais de Acesso</h2>
+                            </div>
+                            <div class="col text-end">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo de Componente Angular -->
+                    <!-- <div *ngFor="let parceiro of dataParceiros">
+                        <input type="checkbox" [checked]="parceiro.acesso" (change)="updateAcesso(parceiro.id, $event.target )">
+                        {{ parceiro.nome }}
+                    </div> -->
+
+                    
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Nome do Parceiro</th>
+                              <th scope="col">Acesso</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let parceiro of dataParceiros; let i = index">
+                              <th scope="row">{{ i + 1 }}</th>
+                              <td>{{ parceiro.nome }}</td>
+                              <td>
+                                <input type="checkbox" [checked]="parceiro.acesso" (change)="updateAcesso(parceiro.id, $event.target)">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+  
+                      
+                </div>
+            </div>
+
+        </div>
+    </div>
+

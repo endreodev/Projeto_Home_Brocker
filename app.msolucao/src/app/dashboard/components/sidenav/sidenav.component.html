@@ -1,0 +1,78 @@
+<div class="sidenav" [ngClass]="{'sidenav-open': isOpen, 'sidenav-close': !isOpen}">
+    <button class="btn btn-light closebtn" (click)="toggleSidenav($event,null)">x</button>
+    <br><br><br>
+    <form [formGroup]="travaForm" (ngSubmit)="onSubmit()" class="p-3">
+
+        <div class="mb-3 row">
+            <label for="produto_id" class="col-sm-4 col-form-label">Produto ID:</label>
+            <div class="col-sm-8">
+                <input type="text" formControlName="produto_id" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="parceiro_id" class="col-sm-4 col-form-label">Parceiro ID:</label>
+            <div class="col-sm-8">
+                <input type="text" formControlName="parceiro_id" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="usuario_id" class="col-sm-4 col-form-label">Usuário ID:</label>
+            <div class="col-sm-8">
+                <input type="text" formControlName="usuario_id" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="quantidade" class="col-sm-4 col-form-label">Quantidade:</label>
+            <div class="col-sm-8">
+                <input type="number" formControlName="quantidade" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="preco_unitario" class="col-sm-4 col-form-label">Preço Unitário:</label>
+            <div class="col-sm-8">
+                <input type="number" formControlName="preco_unitario" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="preco_total" class="col-sm-4 col-form-label">Preço Total:</label>
+            <div class="col-sm-8">
+                <input type="number" formControlName="preco_total" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="cotacao" class="col-sm-4 col-form-label">Cotação:</label>
+            <div class="col-sm-8">
+                <input type="number" formControlName="cotacao" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="status" class="col-sm-4 col-form-label">Status:</label>
+            <div class="col-sm-8">
+                <input type="text" formControlName="status" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="codcontrole" class="col-sm-4 col-form-label">Código de Controle:</label>
+            <div class="col-sm-8">
+                <input type="number" formControlName="codcontrole" class="form-control form-control-sm" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="mensagem" class="col-sm-4 col-form-label">Mensagem:</label>
+            <div class="col-sm-8">
+                <textarea name="mensagem" id="mensagem" formControlName="mensagem" rows="2" class="col-sm-12" readonly></textarea>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary col-sm-12" (click)="toggleSidenav(null, null)">Fechar</button>
+                </div>
+                <!-- <div class="col-sm-6">
+                    <button class="btn btn-secondary col-sm-12">Reprocessar</button>
+                </div> -->
+            </div>
+        </div>        
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<li class="nav-item dropdown">
+    
+    <button class="btn nav-link text-dark  dropdown-toggle" data-unread-notifications="true" href="#" role="button" data-bs-toggle="dropdown"
+        data-bs-display="static" aria-expanded="false" style="color:black">
+         {{parceiroSelecionada}}
+    </button>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-rigth mt-2 py-0">
+        <div class="list-group list-group-flush">
+
+            <a *ngFor="let item of listParceiro" class="list-group-item list-group-item-action border-bottom">
+
+                <div class="row align-items-center" (click)="selectItem(item.id , item.nome)">
+                    <div class="col ps-0 ms-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="h6 mb-0 text-small">{{item.nome}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</li>

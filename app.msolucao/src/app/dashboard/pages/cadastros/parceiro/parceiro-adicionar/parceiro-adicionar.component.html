@@ -1,0 +1,136 @@
+<div class="row mt-5">
+    <div class="col-12 col-xl-12 col-xxl-12 mb-4">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow">
+                    
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h2 class="fs-5 fw-bold mb-0">Parceiro Adicionar</h2>
+                            </div>
+                            <div class="col text-end">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 mt-5 p-3">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="parceiroForm">
+                          <div class="row">
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="mb-3">
+                                  <label for="cnpj" class="form-label">Codigo Interno</label>
+                                  <input type="text" class="form-control" id="cod_interno" formControlName="cod_interno" placeholder="Digite o Cod Interno" maxlength="14">
+                                </div>
+                              </div>
+
+                            <div class="col-sm-12 col-md-3">
+                              <div class="mb-3">
+                                <label for="cnpj" class="form-label">CNPJ</label>
+                                <input type="text" class="form-control" id="cgc" formControlName="cgc" placeholder="Digite o cgc" maxlength="14">
+                                <div *ngIf="parceiroForm.get('cgc')?.invalid && parceiroForm.get('cgc')?.touched">
+                                    <div class="text-danger" *ngIf="parceiroForm.get('cgc')?.hasError('required')">CNPJ é obrigatório.</div>
+                                    <div class="text-danger" *ngIf="parceiroForm.get('cgc')?.hasError('pattern')">CNPJ deve ter 14 dígitos numéricos.</div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                              <div class="mb-3">
+                                <label for="nome" class="form-label">Nome da Parceiro</label>
+                                <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Digite o nome da parceiro">
+                                <div *ngIf="parceiroForm.get('nome')?.invalid && parceiroForm.get('nome')?.touched">
+                                    <div class="text-danger" *ngIf="parceiroForm.get('nome')?.hasError('required')">NOME é obrigatório.</div>
+                                    <div class="text-danger" *ngIf="parceiroForm.get('nome')?.hasError('pattern')">NOME deve ter 14 dígitos numéricos.</div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                  <label for="nome" class="form-label">Limite Ordem</label>
+                                  <input type="number" class="form-control" id="lmt_trava" formControlName="lmt_trava" placeholder="Digite o lmt_trava da parceiro">
+                                  <div *ngIf="parceiroForm.get('lmt_trava')?.invalid && parceiroForm.get('lmt_trava')?.touched">
+                                      <div class="text-danger" *ngIf="parceiroForm.get('lmt_trava')?.hasError('required')">lmt_trava é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="parceiroForm.get('lmt_trava')?.hasError('pattern')">lmt_trava deve ter 14 dígitos numéricos.</div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                  <label for="nome" class="form-label">Limite Mes</label>
+                                  <input type="number" class="form-control" id="lmt_mes" formControlName="lmt_mes" placeholder="Digite o lmt_mes da parceiro">
+                                  <div *ngIf="parceiroForm.get('lmt_mes')?.invalid && parceiroForm.get('lmt_mes')?.touched">
+                                      <div class="text-danger" *ngIf="parceiroForm.get('lmt_mes')?.hasError('required')">lmt_mes é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="parceiroForm.get('lmt_mes')?.hasError('pattern')">lmt_mes deve ter 14 dígitos numéricos.</div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                  <label for="nome" class="form-label">Plano</label>
+                                  <input type="number" class="form-control" id="plano" formControlName="plano" placeholder="Digite o plano da parceiro">
+                                  <div *ngIf="parceiroForm.get('plano')?.invalid && parceiroForm.get('plano')?.touched">
+                                      <div class="text-danger" *ngIf="parceiroForm.get('plano')?.hasError('required')">plano é obrigatório.</div>
+                                      <div class="text-danger" *ngIf="parceiroForm.get('plano')?.hasError('pattern')">plano deve ter 14 dígitos numéricos.</div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Plano</label>
+                                    <select class="form-select" aria-label="Default select example"  id="plano" formControlName="plano" >
+                                        <option *ngFor="let plano of planos" [value]="plano.valor">{{ plano.nome }}</option>
+                                    </select>
+                                    <div *ngIf="parceiroForm.get('plano')?.invalid && parceiroForm.get('plano')?.touched">
+                                        <div class="text-danger" *ngIf="parceiroForm.get('plano')?.hasError('required')">Plano é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                            <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Grupo</label>
+                                    <select class="form-select" aria-label="Default select example"  id="grupo_id" formControlName="grupo_id" >
+                                        <option value=""></option>
+                                        <option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.nome }}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-sm-12 col-md-2">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Ativo</label>
+                                    <select class="form-select" aria-label="Default select example"  id="ativo" formControlName="ativo" >
+                                        <option value="true">Ativo</option>
+                                        <option value="false">Inativo</option>
+                                    </select>
+                                    <div *ngIf="parceiroForm.get('ativo')?.invalid && parceiroForm.get('ativo')?.touched">
+                                        <div class="text-danger" *ngIf="parceiroForm.get('ativo')?.hasError('required')">Ativo é obrigatório.</div> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+                          </div>
+                          <button type="submit" class="btn btn-primary m-2">Salvar</button>
+                          <button type="submit" class="btn btn-danger m-2" [routerLink]="['/dashboard/parceiro']">Cancelar</button>
+
+                          <!-- <a class="btn btn-sm bg-warning" [routerLink]="['/dashboard/empresa/editar', item.id]" >Editar</a> -->
+                        </form>
+                      </div>
+                      
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
